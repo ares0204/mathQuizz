@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">mathQuizz</string>
+    <string name="play_button_description">Play button</string>
+    <string name="rank_button_description">Rank button</string>
+    <string name="exit_button_description">Exit button</string>
+    <string name="replay_button_description">Replay button</string>
+    <string name="true_button_description">True</string>
+    <string name="false_button_description">False</string>
+</resources>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="50dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GAME OVER"
+        android:textColor="@color/black"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/txtTotalScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Your Score : 0"
+        android:textSize="25sp" />
+
+    <ImageButton
+        android:id="@+id/btnReplay"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/reset"
+        android:padding="10dp"
+        android:contentDescription="@string/replay_button_description"
+        android:textSize="25sp" />
+
+    <ImageButton
+        android:id="@+id/btnClose"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/close"
+        android:contentDescription="@string/exit_button_description"
+        android:padding="10dp"
+        android:textSize="25sp" />
+
+</LinearLayout>
