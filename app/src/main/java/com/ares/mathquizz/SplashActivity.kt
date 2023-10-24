@@ -15,7 +15,7 @@ class SplashScreenActivity : AppCompatActivity() {
         val handler = android.os.Handler()
         handler.postDelayed({
             // Chuyển đến màn hình tiếp theo
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, AuthenActivity::class.java)
             startActivity(intent)
             finish()
         }, splashScreenDuration)
