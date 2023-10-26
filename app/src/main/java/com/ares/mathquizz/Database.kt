@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper
 class Database (context: Context) : SQLiteOpenHelper(context, "DB", null, 1) {
     override fun onCreate(p0: SQLiteDatabase?) {
         // tạo bảng
-        p0?.execSQL("create table users(userId integer primary key autoincrement, userName text, password text)")
+        p0?.execSQL("create table users(userId integer primary key autoincrement, userName text, password text, score integer default (0))")
 
         // add data
         p0?.execSQL("insert into users(userName, password) values ('0123456789', '0000')")

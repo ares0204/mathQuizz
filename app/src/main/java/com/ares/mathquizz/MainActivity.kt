@@ -12,19 +12,31 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        play();
-        close();
+        play()
+        rank()
+        close()
+    }
+
+    private fun rank() {
+        binding.btnRank.setOnClickListener {
+            val phoneNumber = intent.getStringExtra("PHONE_NUMBER")
+            val intent = Intent(this, RankActivity::class.java)
+            intent.putExtra("PHONE_NUMBER", phoneNumber)
+            startActivity(intent)
+        }
     }
 
     private fun close() {
         binding.btnExit.setOnClickListener {
-            finish()
+            finishAffinity()
         }
     }
 
     private fun play() {
         binding.btnPlay.setOnClickListener {
+            val phoneNumber = intent.getStringExtra("PHONE_NUMBER")
             val intent = Intent(this, QuizActivity::class.java)
+            intent.putExtra("PHONE_NUMBER", phoneNumber)
             startActivity(intent)
         }
     }

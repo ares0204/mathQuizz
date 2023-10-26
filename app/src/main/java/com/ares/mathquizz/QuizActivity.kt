@@ -1,6 +1,7 @@
 package com.ares.mathquizz
 
 import android.app.Dialog
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
@@ -63,7 +64,27 @@ class QuizActivity: AppCompatActivity() {
                 startActivity(intent)
             }
             btnClose.setOnClickListener {
-                finish()
+                val phoneNumber = intent.getStringExtra("PHONE_NUMBER")
+                val intent = Intent(this, MainActivity::class.java)
+                intent.putExtra("PHONE_NUMBER", phoneNumber)
+                startActivity(intent)
+            }
+
+            var helper = Database(applicationContext)
+            val db = helper.readableDatabase
+            var rs = db.rawQuery("select * from users", null)
+            val phoneNumber = intent.getStringExtra("PHONE_NUMBER")
+
+            while (rs.moveToNext()) {
+                val scoreFromDB = rs.getString(3).toInt()
+                val phoneNumberFromDB = rs.getString(1)
+
+                if (phoneNumber == phoneNumberFromDB && scoreFromDB < score) {
+                    txtTotalScore.text = "Kỷ lục mới : $score"
+                    var cv = ContentValues()
+                    cv.put("score",score.toString())
+                    db.update("users", cv, "userName = ?", arrayOf(phoneNumber))
+                }
             }
 
             dialog.setCancelable(false)

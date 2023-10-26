@@ -26,6 +26,7 @@ class LoginActivity : AppCompatActivity() {
 
                 if (phoneNumber == phoneNumberFromDB && binding.edtPIN.text.toString() == pinFromDB) {
                     val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("PHONE_NUMBER", phoneNumber)
                     startActivity(intent)
                     break
                 }
